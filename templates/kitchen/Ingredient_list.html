@@ -1,0 +1,52 @@
+{% extends "layouts/base-presentation.html" %}
+
+{% block content %}
+  <br>
+  <br>
+  <br>
+  <br>
+  <h1 style="text-align: center">
+    Dish type List
+    <a href="{% url 'catalog:dish-type-create' %}" class="btn btn-primary link-to-page">
+      Create
+    </a>
+  </h1>
+  <search style="text-align: center">
+      {% include "includes/search_form.html" %}
+  </search>
+  {% if ingredient_list %}
+    <table class="table">
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Update</th>
+        <th>Delete</th>
+      </tr>
+
+      {% for ingredient in ingredient_list %}
+        <tr>
+          <td>
+              {{ ingredient.id }}
+          </td>
+          <td>
+              {{ ingredient.name }}
+          </td>
+          <td>
+              <a href="{% url 'catalog:ingredient-update' pk=ingredient.id %}">
+                Update
+              </a>
+          </td>
+            <td>
+              <a style="color: red"
+                href="{% url 'catalog:ingredient-delete' pk=ingredient.id %}">
+                Delete
+              </a>
+            </td>
+        </tr>
+      {% endfor %}
+    </table>
+
+  {% else %}
+      <p>There are no ingredients in the service.</p>
+  {% endif %}
+{% endblock %}

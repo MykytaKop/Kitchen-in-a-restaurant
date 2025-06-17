@@ -8,10 +8,10 @@ from django.urls import reverse_lazy
 from django.views import generic
 
 
-from catalog.forms import CookCreationForm, CookUpdateForm, DishForm, CookSearchForm, DishSearchForm, DishTypeSearchForm, DishTypeForm
+from catalog.forms import CookCreationForm, CookUpdateForm, DishForm, CookSearchForm, DishSearchForm, DishTypeSearchForm, DishTypeForm, IngredientSearchForm
 
 
-from catalog.models import Cook, Dish, DishType
+from catalog.models import Cook, Dish, DishType, Ingredient
 
 
 @login_required
@@ -172,6 +172,39 @@ class DishTypeUpdateView(LoginRequiredMixin, generic.UpdateView):
     template_name = "kitchen/dish_type_form.html"
     success_url = reverse_lazy("catalog:dish-type-list")
 
+class IngredientsListView(LoginRequiredMixin, generic.ListView):
+    model = Ingredient
+    template_name = "kitchen/ingredient_list.html"
+    paginate_by = 5
+
+    def get_context_data(self, *, object_list=None, **kwargs):
+        context = super(IngredientsListView, self).get_context_data(**kwargs)
+        name = self.request.GET.get("name")
+        context["search_form"] = IngredientSearchForm(
+            initial={"name": name})
+        return context
+
+    def get_queryset(self):
+        queryset = Ingredient.objects.all()
+        name = self.request.GET.get("name")
+        if name:
+            return queryset.filter(name__icontains=name)
+        return queryset
+
+
+
+
+class IngredientsDeleteView(LoginRequiredMixin, generic.DeleteView):
+    model = Ingredient
+    template_name = "kitchen/ingredient_delete.html"
+    success_url = reverse_lazy("catalog:ingredient-list")
+
+
+class IngredientsUpdateView(LoginRequiredMixin, generic.UpdateView):
+    model = Ingredient
+    form_class = DishTypeForm
+    template_name = "kitchen/ingredient_form.html"
+    success_url = reverse_lazy("catalog:ingredient-list")
 
 @login_required
 def toggle_assign_to_dish(request, pk):

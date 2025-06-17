@@ -17,6 +17,7 @@
       <p>{{ dish.description }}</p>
     </div>
     <div>
+      <a href="{% url 'catalog:ingredient-list' %}" class="btn btn-primary link-to-page ">All Ingredients in the kitchen</a>
       <h5>Ingredients:</h5>
       {% for ingredient in dish.ingredients.all %}
         <p style="display: inline">{{ ingredient.name }}, </p>

@@ -17,7 +17,10 @@ from catalog.views import (
     DishTypeCreateView,
     DishTypeDeleteView,
     DishTypeUpdateView,
-    toggle_assign_to_dish
+    toggle_assign_to_dish,
+    IngredientsListView,
+    IngredientsUpdateView,
+    IngredientsDeleteView,
 
 )
 
@@ -44,6 +47,9 @@ urlpatterns = [
         toggle_assign_to_dish,
         name="toggle-dish-assign",
     ),
+    path("ingredients/", IngredientsListView.as_view(), name="ingredient-list"),
+    path("ingredients/<int:pk>", IngredientsUpdateView.as_view(), name="ingredient-update"),
+    path("ingredients/<int:pk>/delete", IngredientsDeleteView.as_view(), name="ingredient-delete"),
 
 
 ]
