@@ -28,6 +28,17 @@
     <div class="ml-3">
       <h4>Cooks:</h4>
 
+      {% if dish in user.dishes.all %}
+        <a href="{% url 'catalog:toggle-dish-assign' pk=dish.id %}" class="btn btn-danger link-to-page ">
+          Delete me from this dish
+        </a>
+      {% else %}
+        <a href="{% url 'catalog:toggle-dish-assign' pk=dish.id %}" class="btn btn-success link-to-page">
+          Assign me to this dish
+        </a>
+      {% endif %}
+
+
       {% for cook in dish.cooks.all %}
         <ul>
           <li>
