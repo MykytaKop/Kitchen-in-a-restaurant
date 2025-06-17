@@ -8,7 +8,7 @@ from django.urls import reverse_lazy
 from django.views import generic
 
 
-from catalog.forms import CookCreationForm, CookUpdateForm, DishForm, CookSearchForm, DishSearchForm
+from catalog.forms import CookCreationForm, CookUpdateForm, DishForm, CookSearchForm, DishSearchForm, DishTypeSearchForm, DishTypeForm
 
 
 from catalog.models import Cook, Dish, DishType
@@ -133,6 +133,44 @@ class DishUpdateView(LoginRequiredMixin, generic.UpdateView):
     success_url = reverse_lazy("catalog:dish-list")
 
 
+class DishTypeListView(LoginRequiredMixin, generic.ListView):
+    model = DishType
+    paginate_by = 5
+    template_name = "kitchen/dish_type_list.html"
+
+    def get_context_data(self, *, object_list=None, **kwargs):
+        context = super(DishTypeListView, self).get_context_data(**kwargs)
+        name = self.request.GET.get("name")
+        context["search_form"] = DishTypeSearchForm(
+            initial={"name": name})
+        return context
+
+    def get_queryset(self):
+        queryset = DishType.objects.all()
+        name = self.request.GET.get("name")
+        if name:
+            return queryset.filter(name__icontains=name)
+        return queryset
+
+
+class DishTypeCreateView(LoginRequiredMixin, generic.CreateView):
+    model = DishType
+    form_class = DishTypeForm
+    template_name = "kitchen/dish_type_form.html"
+    success_url = reverse_lazy("catalog:dish-type-list")
+
+
+class DishTypeDeleteView(LoginRequiredMixin, generic.DeleteView):
+    model = DishType
+    template_name = "kitchen/dish_type_delete.html"
+    success_url = reverse_lazy("catalog:dish-type-list")
+
+
+class DishTypeUpdateView(LoginRequiredMixin, generic.UpdateView):
+    model = DishType
+    form_class = DishTypeForm
+    template_name = "kitchen/dish_type_form.html"
+    success_url = reverse_lazy("catalog:dish-type-list")
 
 
 

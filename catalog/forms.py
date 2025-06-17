@@ -70,3 +70,25 @@ class DishSearchForm(forms.Form):
             attrs={"placeholder": "Search by name", }
         )
     )
+
+
+class DishTypeForm(forms.ModelForm):
+
+
+    class Meta:
+        model = DishType
+        fields = "__all__"
+
+
+
+
+
+class DishTypeSearchForm(forms.Form):
+    name = forms.CharField(
+        max_length=100,
+        required=False,
+        label="",
+        widget=forms.TextInput(
+            attrs={"placeholder": "Search by name", }
+        )
+    )

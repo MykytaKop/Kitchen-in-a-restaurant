@@ -50,7 +50,9 @@ Coded by www.creative-tim.com
     {% block content %}
     {% endblock content %}
 
-{#    pagination here#}
+    {% block pagination %}
+        {% include "includes/pagination.html" %}
+    {% endblock %}
 
     {% include "includes/footer.html" %}
 

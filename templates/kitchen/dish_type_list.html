@@ -1,0 +1,52 @@
+{% extends "layouts/base-presentation.html" %}
+
+{% block content %}
+  <br>
+  <br>
+  <br>
+  <br>
+  <h1 style="text-align: center">
+    Dish type List
+    <a href="{% url 'catalog:dish-type-create' %}" class="btn btn-primary link-to-page">
+      Create
+    </a>
+  </h1>
+  <search style="text-align: center">
+      {% include "includes/search_form.html" %}
+  </search>
+  {% if dishtype_list %}
+    <table class="table">
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Update</th>
+        <th>Delete</th>
+      </tr>
+
+      {% for dish_type in dishtype_list %}
+        <tr>
+          <td>
+              {{ dish_type.id }}
+          </td>
+          <td>
+              {{ dish_type.name }}
+          </td>
+          <td>
+              <a href="{% url 'catalog:dish-type-update' pk=dish_type.id %}">
+                Update
+              </a>
+            </td>
+            <td>
+              <a style="color: red"
+                href="{% url 'catalog:dish-type-delete' pk=dish_type.id %}">
+                Delete
+              </a>
+            </td>
+        </tr>
+      {% endfor %}
+    </table>
+
+  {% else %}
+      <p>There are no manufacturers in the service.</p>
+  {% endif %}
+{% endblock %}

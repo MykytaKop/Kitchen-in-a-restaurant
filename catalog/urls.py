@@ -13,6 +13,10 @@ from catalog.views import (
     DishDetailView,
     DishDeleteView,
     DishUpdateView,
+    DishTypeListView,
+    DishTypeCreateView,
+    DishTypeDeleteView,
+    DishTypeUpdateView
 
 )
 
@@ -29,6 +33,10 @@ urlpatterns = [
     path("dishes/<int:pk>", DishDetailView.as_view(), name="dish-detail"),
     path("dishes/<int:pk>/delete/", DishDeleteView.as_view(), name="dish-delete"),
     path("dishes/<int:pk>/update/", DishUpdateView.as_view(), name="dish-update"),
+    path("dish_type_list/", DishTypeListView.as_view(), name="dish-type-list"),
+    path("dish_type/create/", DishTypeCreateView.as_view(), name="dish-type-create"),
+    path("dish_type/<int:pk>/delete/", DishTypeDeleteView.as_view(), name="dish-type-delete"),
+    path("dish_type/<int:pk>/update/", DishTypeUpdateView.as_view(), name="dish-type-update"),
 
 
 
