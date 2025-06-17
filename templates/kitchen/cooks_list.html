@@ -1,0 +1,40 @@
+{% extends "layouts/base-presentation.html" %}
+
+{% block content %}
+  <br>
+  <br>
+  <br>
+  <br>
+    <h1 style="text-align: center">
+      Cook List
+      <a href="{% url 'catalog:cook-create' %}" class="btn btn-primary link-to-page">
+        Create
+      </a>
+    </h1>
+    <search style="text-align: center">
+      {% include "includes/search_form.html" %}
+    </search>
+    {% if cook_list %}
+    <table class="table">
+      <tr>
+        <th>ID</th>
+        <th>Username</th>
+        <th>First name</th>
+        <th>Last name</th>
+        <th>Years of experience</th>
+      </tr>
+    {% for cook in cook_list %}
+      <tr>
+        <td>{{ cook.id }}</td>
+        <td><a href="{{ cook.get_absolute_url }}">{{ cook.username }} {% if user == cook %} (Me){% endif %}</a></td>
+        <td>{{ cook.first_name }}</td>
+        <td>{{ cook.last_name }}</td>
+        <td>{{ cook.years_of_experience }}</td>
+      </tr>
+    {% endfor %}
+
+    </table>
+    {% else %}
+      <p>There are no Cooks in the service.</p>
+    {% endif %}
+{% endblock %}
