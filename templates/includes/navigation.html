@@ -37,7 +37,7 @@
                 {% if request.user.is_authenticated %}
                   <li class="nav-item ms-lg-auto me-2">
                     <a class="nav-link nav-link-icon me-2"
-                       href="#">
+                       href="{% url 'catalog:cook-detail' pk=user.id %}">
                       <i class="fa fa-sign-out me-1"></i>
                       User:
                       <p class="d-inline text-sm z-index-1 font-weight-bold" data-bs-toggle="tooltip"
@@ -45,8 +45,9 @@
                     </a>
                   </li>
                   <li class="nav-item ms-lg-auto me-2">
-                    <form id="logout-form" method="post" action="#">
+                    <form id="logout-form" method="post" action="{% url 'logout' %}">
                       {% csrf_token %}
+
                       <button type="submit"
                               class="btn btn-sm  bg-gradient-primary  btn-round mb-0 me-1 mt-2 mt-md-0">Log out</button>
                     </form>
@@ -54,7 +55,7 @@
                 {% else %}
                   <li class="nav-item ms-lg-auto">
                     <a class="nav-link nav-link-icon me-2"
-                       href="#">
+                       href="{% url 'login' %}">
                       <i class="fa fa-sign-in me-1"></i>
                       <p class="d-inline text-sm z-index-1 font-weight-bold" data-bs-toggle="tooltip"
                          data-bs-placement="bottom" title="Login">Login</p>

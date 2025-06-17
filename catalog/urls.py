@@ -22,6 +22,7 @@ from catalog.views import (
 )
 
 app_name = "catalog"
+
 urlpatterns = [
     path("", index, name="index"),
     path("cooks/", CookListView.as_view(), name="cook-list"),
