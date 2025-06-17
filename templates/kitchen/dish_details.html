@@ -1,0 +1,41 @@
+{% extends "layouts/base-presentation.html" %}
+
+{% block content %}
+  <div style="position: relative; left: 40%; top: 90px">
+    <h1>
+      Name: {{ dish.name }}
+      <a href="{% url 'catalog:dish-delete' pk=dish.id %}" class="btn btn-danger link-to-page">
+        Delete
+      </a>
+      <a href="{% url 'catalog:dish-update' pk=dish.id %}" class="btn btn-secondary link-to-page">
+        Update dish
+      </a><br>
+      <h2>Dish type: {{ dish.dish_type }}</h2>
+    </h1>
+    <div>
+      <h5>Description:</h5>
+      <p>{{ dish.description }}</p>
+    </div>
+    <div>
+      <h5>Ingredients:</h5>
+      {% for ingredient in dish.ingredients.all %}
+        <p style="display: inline">{{ ingredient.name }}, </p>
+      {% endfor %}
+    </div><br>
+
+
+
+    <div class="ml-3">
+      <h4>Cooks:</h4>
+
+      {% for cook in dish.cooks.all %}
+        <ul>
+          <li>
+            <a href="{{ cook.get_absolute_url }}">{{ cook.username }}</a>({{ cook.first_name }} {{ cook.last_name }});
+          </li>
+        </ul>
+
+      {% endfor %}
+    </div>
+  </div>
+{% endblock %}

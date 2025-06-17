@@ -21,7 +21,7 @@
         <h4>Dishes:</h4>
         {% for dish in cook.dishes.all %}
           <hr>
-          <p><a href="#">{{ dish.name }} ({{ dish.dish_type.name }})</a></p>
+          <p><a href="{% url 'catalog:dish-detail' pk=dish.id %}">{{ dish.name }} ({{ dish.dish_type.name }})</a></p>
         {% empty %}
           <p>No dishes!</p>
         {% endfor %}

@@ -1,0 +1,39 @@
+{% extends "layouts/base-presentation.html" %}
+{% block content %}
+  <br>
+  <br>
+  <br>
+  <br>
+
+  <h1 style="text-align: center">Dish list
+    <a href="{% url 'catalog:dish-create' %}"
+       class="btn btn-primary link-to-page">+</a>
+  </h1>
+  <search style="text-align: center">
+    {% include "includes/search_form.html" %}
+  </search>
+  {% if dish_list %}
+    <table class="table table">
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Dish type</th>
+        <th>Price</th>
+        <th>Delete</th>
+      </tr>
+      {% for dish in dish_list %}
+        <tr>
+          <td>{{ dish.id }}</td>
+          <td><a href="{% url 'catalog:dish-detail' pk=dish.id %}" class="text-decoration-underline">{{ dish.name }}</a>
+          </td>
+          <td>{{ dish.dish_type }}</td>
+          <td>{{ dish.price }}</td>
+          <td><a href="{% url 'catalog:dish-delete' pk=dish.id %}"
+                 class="text-decoration-underline">Delete</a></td>
+        </tr>
+      {% endfor %}
+    </table>
+  {% else %}
+    <p>There are no dishes in service.</p>
+  {% endif %}
+{% endblock %}

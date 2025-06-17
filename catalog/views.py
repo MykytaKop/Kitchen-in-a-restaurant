@@ -8,7 +8,9 @@ from django.urls import reverse_lazy
 from django.views import generic
 
 
-from catalog.forms import CookCreationForm, CookUpdateForm, CookSearchForm
+from catalog.forms import CookCreationForm, CookUpdateForm, DishForm, CookSearchForm, DishSearchForm
+
+
 from catalog.models import Cook, Dish, DishType
 
 
@@ -80,6 +82,55 @@ class CookUpdateView(LoginRequiredMixin, generic.UpdateView):
     template_name = "kitchen/cook_form.html"
     success_url = reverse_lazy("catalog:cook-list")
 
+
+class DishListView(LoginRequiredMixin, generic.ListView):
+    model = Dish
+    template_name = "kitchen/dish_list.html"
+    context_object_name = "dish_list"
+
+    def get_queryset(self):
+        queryset = Dish.objects.select_related(
+            "dish_type").prefetch_related("cooks", "ingredients")
+        form = DishSearchForm(self.request.GET)
+        if form.is_valid():
+            return queryset.filter(
+                name__icontains=form.cleaned_data["name"]
+            )
+        return queryset
+
+    def get_context_data(self, *, object_list=None, **kwargs):
+        context = super(DishListView, self).get_context_data(**kwargs)
+        name = self.request.GET.get("name")
+        context["search_form"] = DishSearchForm(
+            initial={"name": name})
+        return context
+
+
+
+class DishDetailView(LoginRequiredMixin, generic.DetailView):
+    model = Dish
+    template_name = "kitchen/dish_details.html"
+    success_url = reverse_lazy("")
+
+
+class DishCreateView(LoginRequiredMixin, generic.CreateView):
+    model = Dish
+    form_class = DishForm
+    template_name = "kitchen/dish_form.html"
+    success_url = reverse_lazy("catalog:dish-list")
+
+
+class DishDeleteView(LoginRequiredMixin, generic.DeleteView):
+    model = Dish
+    template_name = "kitchen/dish_delete.html"
+    success_url = reverse_lazy("catalog:dish-list")
+
+
+class DishUpdateView(LoginRequiredMixin, generic.UpdateView):
+    model = Dish
+    form_class = DishForm
+    template_name = "kitchen/dish_form.html"
+    success_url = reverse_lazy("catalog:dish-list")
 
 
 
