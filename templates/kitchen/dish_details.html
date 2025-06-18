@@ -1,7 +1,7 @@
 {% extends "layouts/base-presentation.html" %}
 
 {% block content %}
-  <div style="position: relative; left: 40%; top: 90px">
+  <div style="position: relative; left: 30%; top: 90px">
     <h1>
       Name: {{ dish.name }}
       <a href="{% url 'catalog:dish-delete' pk=dish.id %}" class="btn btn-danger link-to-page">

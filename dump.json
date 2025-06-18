@@ -1,0 +1,478 @@
+[
+{
+  "model": "catalog.dishtype",
+  "pk": 1,
+  "fields": {
+    "name": "Appetizer"
+  }
+},
+{
+  "model": "catalog.dishtype",
+  "pk": 2,
+  "fields": {
+    "name": "Main course"
+  }
+},
+{
+  "model": "catalog.dishtype",
+  "pk": 3,
+  "fields": {
+    "name": "Side dish"
+  }
+},
+{
+  "model": "catalog.dishtype",
+  "pk": 4,
+  "fields": {
+    "name": "Dessert"
+  }
+},
+{
+  "model": "catalog.dishtype",
+  "pk": 5,
+  "fields": {
+    "name": "Snack"
+  }
+},
+{
+  "model": "catalog.dishtype",
+  "pk": 6,
+  "fields": {
+    "name": "Soup"
+  }
+},
+{
+  "model": "catalog.dishtype",
+  "pk": 7,
+  "fields": {
+    "name": "Salad"
+  }
+},
+{
+  "model": "catalog.dishtype",
+  "pk": 8,
+  "fields": {
+    "name": "Breakfast dish"
+  }
+},
+{
+  "model": "catalog.dishtype",
+  "pk": 9,
+  "fields": {
+    "name": "Lunch dish"
+  }
+},
+{
+  "model": "catalog.dishtype",
+  "pk": 10,
+  "fields": {
+    "name": "Dinner dish"
+  }
+},
+{
+  "model": "catalog.dishtype",
+  "pk": 11,
+  "fields": {
+    "name": "Grilled dish"
+  }
+},
+{
+  "model": "catalog.dishtype",
+  "pk": 12,
+  "fields": {
+    "name": "Fried dish"
+  }
+},
+{
+  "model": "catalog.dishtype",
+  "pk": 13,
+  "fields": {
+    "name": "Baked dish"
+  }
+},
+{
+  "model": "catalog.dishtype",
+  "pk": 14,
+  "fields": {
+    "name": "Boiled dish"
+  }
+},
+{
+  "model": "catalog.dishtype",
+  "pk": 15,
+  "fields": {
+    "name": "Steamed dish"
+  }
+},
+{
+  "model": "catalog.dishtype",
+  "pk": 17,
+  "fields": {
+    "name": "Roasted dish"
+  }
+},
+{
+  "model": "catalog.dishtype",
+  "pk": 18,
+  "fields": {
+    "name": "Main Course"
+  }
+},
+{
+  "model": "catalog.dishtype",
+  "pk": 19,
+  "fields": {
+    "name": "Japanese Cuisine"
+  }
+},
+{
+  "model": "catalog.dishtype",
+  "pk": 20,
+  "fields": {
+    "name": "Street Food"
+  }
+},
+{
+  "model": "catalog.ingredient",
+  "pk": 1,
+  "fields": {
+    "name": "Salt"
+  }
+},
+{
+  "model": "catalog.ingredient",
+  "pk": 2,
+  "fields": {
+    "name": "Sugar"
+  }
+},
+{
+  "model": "catalog.ingredient",
+  "pk": 3,
+  "fields": {
+    "name": "Water"
+  }
+},
+{
+  "model": "catalog.ingredient",
+  "pk": 4,
+  "fields": {
+    "name": "Olive oil"
+  }
+},
+{
+  "model": "catalog.ingredient",
+  "pk": 5,
+  "fields": {
+    "name": "Butter"
+  }
+},
+{
+  "model": "catalog.ingredient",
+  "pk": 6,
+  "fields": {
+    "name": "Garlic"
+  }
+},
+{
+  "model": "catalog.ingredient",
+  "pk": 7,
+  "fields": {
+    "name": "Onion"
+  }
+},
+{
+  "model": "catalog.ingredient",
+  "pk": 8,
+  "fields": {
+    "name": "Tomato"
+  }
+},
+{
+  "model": "catalog.ingredient",
+  "pk": 9,
+  "fields": {
+    "name": "Egg"
+  }
+},
+{
+  "model": "catalog.ingredient",
+  "pk": 10,
+  "fields": {
+    "name": "Milk"
+  }
+},
+{
+  "model": "catalog.ingredient",
+  "pk": 11,
+  "fields": {
+    "name": "Cheese"
+  }
+},
+{
+  "model": "catalog.ingredient",
+  "pk": 12,
+  "fields": {
+    "name": "Chicken"
+  }
+},
+{
+  "model": "catalog.ingredient",
+  "pk": 13,
+  "fields": {
+    "name": "Beef"
+  }
+},
+{
+  "model": "catalog.ingredient",
+  "pk": 14,
+  "fields": {
+    "name": "Rice"
+  }
+},
+{
+  "model": "catalog.ingredient",
+  "pk": 15,
+  "fields": {
+    "name": "Pasta"
+  }
+},
+{
+  "model": "catalog.ingredient",
+  "pk": 16,
+  "fields": {
+    "name": "Potato"
+  }
+},
+{
+  "model": "catalog.ingredient",
+  "pk": 17,
+  "fields": {
+    "name": "Carrot"
+  }
+},
+{
+  "model": "catalog.ingredient",
+  "pk": 18,
+  "fields": {
+    "name": "Pepper"
+  }
+},
+{
+  "model": "catalog.ingredient",
+  "pk": 19,
+  "fields": {
+    "name": "Flour"
+  }
+},
+{
+  "model": "catalog.ingredient",
+  "pk": 20,
+  "fields": {
+    "name": "Lemon"
+  }
+},
+{
+  "model": "catalog.dish",
+  "pk": 14,
+  "fields": {
+    "name": "Spaghetti Carbonara",
+    "description": "Classic Italian pasta with bacon, egg yolk, and Parmesan cheese.",
+    "price": "10.00",
+    "dish_type": 18,
+    "cooks": [
+      1,
+      4
+    ],
+    "ingredients": [
+      5,
+      10,
+      17
+    ]
+  }
+},
+{
+  "model": "catalog.dish",
+  "pk": 15,
+  "fields": {
+    "name": "Tom Yum Soup",
+    "description": "Spicy and sour Thai soup with shrimp, lemongrass, and lime.",
+    "price": "10.00",
+    "dish_type": 6,
+    "cooks": [
+      1,
+      4
+    ],
+    "ingredients": [
+      1,
+      4,
+      5,
+      8,
+      10
+    ]
+  }
+},
+{
+  "model": "catalog.dish",
+  "pk": 16,
+  "fields": {
+    "name": "Beef Stroganoff",
+    "description": "Tender beef sauteed with mushrooms in a creamy sauce, served over noodles.",
+    "price": "10.00",
+    "dish_type": 18,
+    "cooks": [
+      1,
+      4
+    ],
+    "ingredients": [
+      5,
+      6,
+      16,
+      18,
+      19
+    ]
+  }
+},
+{
+  "model": "catalog.dish",
+  "pk": 17,
+  "fields": {
+    "name": "Caesar Salad",
+    "description": "Salad with grilled chicken, croutons, Parmesan, and Caesar dressing.",
+    "price": "10.00",
+    "dish_type": 7,
+    "cooks": [
+      1,
+      4
+    ],
+    "ingredients": [
+      5,
+      6,
+      9,
+      12,
+      17
+    ]
+  }
+},
+{
+  "model": "catalog.dish",
+  "pk": 18,
+  "fields": {
+    "name": "Margherita Pizza",
+    "description": "Simple pizza with tomato sauce, mozzarella, and fresh basil.",
+    "price": "10.00",
+    "dish_type": 1,
+    "cooks": [
+      1,
+      4
+    ],
+    "ingredients": [
+      4,
+      11,
+      14,
+      20
+    ]
+  }
+},
+{
+  "model": "catalog.dish",
+  "pk": 19,
+  "fields": {
+    "name": "Sushi Platter",
+    "description": "Assorted rolls, nigiri, and sashimi featuring fresh fish and rice.",
+    "price": "10.00",
+    "dish_type": 19,
+    "cooks": [
+      1,
+      4
+    ],
+    "ingredients": [
+      5,
+      6,
+      9,
+      12,
+      16
+    ]
+  }
+},
+{
+  "model": "catalog.dish",
+  "pk": 20,
+  "fields": {
+    "name": "French Onion Soup",
+    "description": "Rich soup with caramelized onions and melted cheese over toasted bread.",
+    "price": "10.00",
+    "dish_type": 6,
+    "cooks": [
+      1,
+      4
+    ],
+    "ingredients": [
+      8,
+      10,
+      19
+    ]
+  }
+},
+{
+  "model": "catalog.dish",
+  "pk": 21,
+  "fields": {
+    "name": "Tacos al Pastor",
+    "description": "Mexican street-style tacos with marinated pork, pineapple, and spicy salsa.",
+    "price": "10.00",
+    "dish_type": 20,
+    "cooks": [
+      1,
+      4
+    ],
+    "ingredients": [
+      3,
+      10,
+      13,
+      20
+    ]
+  }
+},
+{
+  "model": "catalog.dish",
+  "pk": 22,
+  "fields": {
+    "name": "Pad Thai",
+    "description": "Stir-fried Thai noodles with chicken, tofu, peanuts, and lime.",
+    "price": "10.00",
+    "dish_type": 18,
+    "cooks": [
+      1,
+      4
+    ],
+    "ingredients": [
+      1,
+      4,
+      14,
+      15
+    ]
+  }
+},
+{
+  "model": "catalog.dish",
+  "pk": 23,
+  "fields": {
+    "name": "Tiramisu",
+    "description": "Classic Italian dessert with coffee-soaked ladyfingers, mascarpone, and cocoa.",
+    "price": "10.00",
+    "dish_type": 4,
+    "cooks": [
+      1,
+      4
+    ],
+    "ingredients": [
+      5,
+      9,
+      17,
+      18,
+      20
+    ]
+  }
+}
+]
