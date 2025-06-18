@@ -10,9 +10,10 @@ class CookCreationForm(UserCreationForm):
     class Meta(UserCreationForm.Meta):
         model = Cook
         fields = UserCreationForm.Meta.fields + (
-            "years_of_experience",
             "first_name",
             "last_name",
+            "email",
+            "years_of_experience",
         )
 
 class CookUpdateForm(forms.ModelForm):
@@ -78,9 +79,6 @@ class DishTypeForm(forms.ModelForm):
     class Meta:
         model = DishType
         fields = "__all__"
-
-
-
 
 
 class DishTypeSearchForm(forms.Form):

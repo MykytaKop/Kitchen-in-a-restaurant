@@ -8,11 +8,15 @@
 
 
         </h2>
-        <a href="{% url 'catalog:cook-delete' pk=cook.id %}"
-           class="btn btn-danger link-to-page">Delete user</a>
-        <a href="{% url 'catalog:cook-update' pk=cook.id %}" class="btn btn-secondary link-to-page">
-          Update user
-        </a>
+        {% if cook.username == user.username or user.username == "owner"  %}
+          <a href="{% url 'catalog:cook-delete' pk=cook.id %}"
+             class="btn btn-danger link-to-page">Delete user</a>
+        {% endif %}
+        {% if cook.username == user.username %}
+          <a href="{% url 'catalog:cook-update' pk=cook.id %}" class="btn btn-secondary link-to-page">
+            Update user
+          </a>
+        {% endif %}
 
         <p><strong>First name:</strong> {{ cook.first_name }}</p>
         <p><strong>Last name:</strong> {{ cook.last_name }}</p>
