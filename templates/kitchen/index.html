@@ -1,5 +1,7 @@
 {% extends 'layouts/base-presentation.html' %}
 
+{% load static %}
+
 {% block title %} Presentation {% endblock title %}
 
 <!-- Specific CSS goes HERE -->
@@ -10,11 +12,11 @@
 {% block content %}
 
   <header class="header-2">
-    <div class="page-header section-height-75 relative" style="background-image: url('/static/assets/img/curved-images/restaurant.jpg')">
+    <div class="page-header section-height-75 relative" style="background-image: url({% static '/assets/img/curved-images/restaurant.jpg' %})">
       <div class="container">
         <div class="row">
           <div class="col-lg-7 text-center mx-auto">
-            <h1 class="text-white pt-3 mt-n5" style="color: red">
+            <h1 class="text-white pt-3 mt-n5">
               Welcome to Best Kitchen Ever!
             </h1>
           </div>
