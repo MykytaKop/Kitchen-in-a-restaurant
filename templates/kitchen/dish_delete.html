@@ -1,0 +1,12 @@
+{% extends "layouts/base-presentation.html" %}
+
+{% block content %}
+  <div style="position: relative; left: 40%; top: 90px;">
+    <h1>Delete Dish?</h1>
+    <form action="" method="post">
+      {% csrf_token %}
+
+      <input style="position: relative ;left: 5%" type="submit" value="Yes" class="btn btn-danger">
+    </form>
+  </div>
+{% endblock %}

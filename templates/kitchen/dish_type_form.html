@@ -1,0 +1,15 @@
+{% extends "layouts/base-presentation.html" %}
+{% load crispy_forms_filters %}
+{% block content %}
+  <div class="align-content-lg-center" style="position: relative; left: 40%; top: 90px">
+    <h1>{{ object|yesno:"Update, Create" }} Dish Type</h1>
+    <div class="form-inline d-inline-flex">
+      <form action="" method="post" novalidate class=" form-control-sm">
+        {% csrf_token %}
+        {{ form|crispy }}
+
+        <input type="submit" value="Submit" class="btn btn-primary">
+      </form>
+    </div>
+  </div>
+{% endblock %}

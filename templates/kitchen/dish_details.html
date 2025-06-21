@@ -1,0 +1,53 @@
+{% extends "layouts/base-presentation.html" %}
+
+{% block content %}
+  <div style="position: relative; left: 30%; top: 90px">
+    <h1>
+      Name: {{ dish.name }}
+      <a href="{% url 'catalog:dish-delete' pk=dish.id %}" class="btn btn-danger link-to-page">
+        Delete
+      </a>
+      <a href="{% url 'catalog:dish-update' pk=dish.id %}" class="btn btn-secondary link-to-page">
+        Update dish
+      </a><br>
+      <h2>Dish type: {{ dish.dish_type }}</h2>
+    </h1>
+    <div>
+      <h5>Description:</h5>
+      <p>{{ dish.description }}</p>
+    </div>
+    <div>
+      <h5>Ingredients:</h5>
+      {% for ingredient in dish.ingredients.all %}
+        <p style="display: inline">{{ ingredient.name }}, </p>
+      {% endfor %}<br>
+      <a href="{% url 'catalog:ingredient-list' %}" class="btn btn-primary link-to-page ">See all Ingredients in the kitchen</a>
+    </div><br>
+
+
+
+    <div class="ml-3">
+      <h4>Cooks:</h4>
+
+      {% if dish in user.dishes.all %}
+        <a href="{% url 'catalog:toggle-dish-assign' pk=dish.id %}" class="btn btn-danger link-to-page ">
+          Delete me from this dish
+        </a>
+      {% else %}
+        <a href="{% url 'catalog:toggle-dish-assign' pk=dish.id %}" class="btn btn-success link-to-page">
+          Assign me to this dish
+        </a>
+      {% endif %}
+
+
+      {% for cook in dish.cooks.all %}
+        <ul>
+          <li>
+            <a href="{{ cook.get_absolute_url }}">{{ cook.username }}</a>({{ cook.first_name }} {{ cook.last_name }});
+          </li>
+        </ul>
+
+      {% endfor %}
+    </div>
+  </div>
+{% endblock %}
