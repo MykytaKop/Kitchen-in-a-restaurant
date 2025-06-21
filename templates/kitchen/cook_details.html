@@ -8,7 +8,7 @@
 
 
         </h2>
-        {% if cook.username == user.username or user.username == "owner"  %}
+        {% if cook.username == user.username %}
           <a href="{% url 'catalog:cook-delete' pk=cook.id %}"
              class="btn btn-danger link-to-page">Delete user</a>
         {% endif %}
