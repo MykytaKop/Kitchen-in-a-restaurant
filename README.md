@@ -31,6 +31,7 @@
   ```python manage.py runserver```
   
 
-## Link to deployd project:
+## Link to deployed project:
+
 
  ```https://kitchen-in-a-restaurant.onrender.com```
